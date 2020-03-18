@@ -1,8 +1,8 @@
-import { GET_PRODUCTS, GET_TICKET_DETAILS, SET_ERROR_MSG } from '../actions/types'
+import { GET_PRODUCTS, SET_ERROR_MSG } from '../actions/types'
 
 const initialState = {
   products: [],
-  next_url: null,
+  nextUrl: null,
   error: null
 }
 
@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
     case GET_PRODUCTS:
       return {
         products: action.payload,
-        next_url: action.next_url,
+        nextUrl: action.nextUrl,
         error: null
       }
     // Set the error msg

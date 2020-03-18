@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import ticketViewerReducer from './ticketViewerReducer'
+import productViewerReducer from './productViewerReducer'
 
 export default combineReducers({
-  ticketViewer: ticketViewerReducer
+  productViewer: productViewerReducer
 })
