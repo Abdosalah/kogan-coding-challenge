@@ -36,7 +36,8 @@
   "standard": {
     "env": [
       "jasmine"
-    ]
+    ],
+    "parser": "babel-eslint"
   },
   "browserslist": {
     "production": [

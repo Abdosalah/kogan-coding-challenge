@@ -14,7 +14,7 @@ export const getProducts = (nextUrl) => dispatch => {
     const productsData = JSON.parse(response.data)
     dispatch({
       type: GET_PRODUCTS,
-      payload: productsData.Objects,
+      products: productsData.Objects,
       nextUrl: productsData.Next
     })
   }).catch(error => {

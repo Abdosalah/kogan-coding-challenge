@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
     // Set the attributes and clear the error
     case GET_PRODUCTS:
       return {
-        products: action.payload,
+        products: action.products,
         nextUrl: action.nextUrl,
         error: null
       }

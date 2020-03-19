@@ -5,15 +5,15 @@ import { Button } from 'reactstrap'
 import { getProducts } from '../store/actions/productViewerActions'
 
 class Products extends Component {
-  componentWillMount () {
+  componentDidMount () {
     this.props.getProducts()
   };
 
   displayProductDetails () {
-    const all_products = this.props.productViewer.products
-    const entries_array = Object.entries(all_products)
-    const product_list = entries_array.map((product, key) =>
-      <li key={key} data-test="product-list-item" >
+    const allProducts = this.props.productViewer.products
+    const entriesArray = Object.entries(allProducts)
+    const productList = entriesArray.map((product, key) =>
+      <li key={key} data-test='product-item'>
         <h4>
           {product[1].Title}
         </h4>
@@ -27,15 +27,16 @@ class Products extends Component {
           Cubic Weight: {product[1].CubicWeight} KG
         </div>
       </li>
-    );
+    )
+
     return (
-      <ul>
-        {product_list}
+      <ul data-test='product-list'>
+        {productList}
       </ul>
     )
   };
 
-  pageOnClick = e => {
+  handlePageOnClick = _ => {
     this.props.getProducts(this.props.productViewer.nextUrl)
   }
 
@@ -43,15 +44,27 @@ class Products extends Component {
     return this.props.productViewer.nextUrl ? 'Next Page' : 'First Page'
   }
 
+  displayErrorMsg () {
+    if (this.props.productViewer.error) {
+      return (
+        <div data-test='error-div'>
+          {this.props.productViewer.error}
+        </div>
+      )
+    }
+  }
+
   render () {
     const productDetails = this.displayProductDetails()
+    const errorMessage = this.displayErrorMsg()
     return (
-      <div data-test='product-details-component'>
+      <div data-test='product-display-component'>
         <h1>Products</h1>
         {productDetails}
+        {errorMessage}
         <Button
           color='primary'
-          onClick={this.pageOnClick}
+          onClick={this.handlePageOnClick}
         >
           {this.nextOrPrev()}
         </Button>

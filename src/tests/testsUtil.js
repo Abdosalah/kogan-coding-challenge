@@ -1,4 +1,3 @@
-import checkPropTypes from 'check-prop-types'
 import { applyMiddleware, createStore } from 'redux'
 import rootReducer from '../store/reducers'
 import thunkMiddleware from 'redux-thunk'
