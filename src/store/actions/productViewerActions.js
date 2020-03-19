@@ -8,8 +8,7 @@ export const getProducts = (nextUrl) => dispatch => {
   // Assemble the url together with the page number
   var url = `${GET_PRODUCTS_URL}${nextUrl}`
 
-  // Send the request to the server with the url as a parameter and
-  // and call the validation function
+  // Send the request to the server with the url as a parameter
   axios.get(BACKEND_URL, { params: { url } }).then(response => {
     const productsData = JSON.parse(response.data)
     dispatch({
