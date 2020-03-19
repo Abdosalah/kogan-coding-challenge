@@ -25,10 +25,11 @@
     "standard": "^14.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"cd server && go run main.go\" \"react-scripts start\" ",
     "lint": "standard",
-    "build-server": "cd server && ./buildScript",
-    "test": "react-scripts test"
+    "build-server": "cd server && go get github.com/gorilla/mux github.com/stretchr/testify/assert",
+    "test": "react-scripts test",
+    "test-server": "cd server && go test"
   },
   "eslintConfig": {
     "extends": "react-app"
