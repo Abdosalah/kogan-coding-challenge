@@ -12,14 +12,19 @@ class Products extends Component {
   displayProductDetails () {
     const all_products = this.props.productViewer.products
     const entries_array = Object.entries(all_products)
-    const product_list = entries_array.map((product_entry, key) =>
+    const product_list = entries_array.map((product, key) =>
       <li key={key} data-test="product-list-item" >
-        {product_entry[1].title}
+        <h4>
+          {product[1].Title}
+        </h4>
         <div>
-          {product_entry[1].category}
+          Category: {product[1].Category}
         </div>
         <div>
-          {product_entry[1].weight} grams
+          Weight: {product[1].Weight} grams
+        </div>
+        <div>
+          Cubic Weight: {product[1].CubicWeight} KG
         </div>
       </li>
     );

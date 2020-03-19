@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { GET_PRODUCTS, SET_ERROR_MSG } from './types'
-import { GET_PRODUCTS_URL, INITIAL_NEXT_URL } from '../../config/keys'
+import { GET_PRODUCTS_URL, INITIAL_NEXT_URL, BACKEND_URL } from '../../config/keys'
 
 // Fetch all PRODUCTS
 export const getProducts = (nextUrl) => dispatch => {
@@ -10,11 +10,12 @@ export const getProducts = (nextUrl) => dispatch => {
 
   // Send the request to the server with the url as a parameter and
   // and call the validation function
-  axios.get(url, { params: { url } }).then(response => {
+  axios.get(BACKEND_URL, { params: { url } }).then(response => {
+    const productsData = JSON.parse(response.data)
     dispatch({
       type: GET_PRODUCTS,
-      payload: response.data.objects,
-      nextUrl: response.data.next
+      payload: productsData.Objects,
+      nextUrl: productsData.Next
     })
   }).catch(error => {
     dispatch({
