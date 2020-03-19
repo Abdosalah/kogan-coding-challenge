@@ -1,12 +1,13 @@
 ## Overview
 This project was built using
-- Nodejs v11.12.0 (Front-end)
-- go version 1.13.4  (Back-end)
+- Nodejs v11.12.0 (Front-end) (JavaScript)
+- go version 1.13.4  (Back-end) (Golang)
 
 ## To start the application
-3. run "yarn install"
-3. run "yarn run build-server"
-4. run "yarn start"
+Please make sure you have NodeJs and Go installed on your machine.
+1. run "yarn install"
+1. run "yarn run build-server"
+1. run "yarn start"
 
 ## To run the tests
 1. FrontEnd :
